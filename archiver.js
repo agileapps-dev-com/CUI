@@ -1,14 +1,49 @@
 // require modules
 var fs = require('fs');
 var archiver = require('archiver');
+var readline = require("readline");
 var tmpls = process.argv.slice(2);
+var packageName, packageVersion;
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Provide the name for the package: ", function(name) {
+    rl.question("Version of the zip: ", function(ver) {
+        console.log(`${name} version is ${ver}`);
+		packageName = name;
+		packageVersion = ver;
+		rl.close();
+    });
+});
+
+rl.on("close", function() {
+	var itr = 0;
+	while(itr < tmpls.length ){
+		archive(tmpls[itr]);
+		itr++;
+	}
+});
+
+function createTemplateJsonFile(packageName, packageVersion, template) {
+	var writeStream = fs.createWriteStream('src/' + template + '/template-details.json');
+	const template_details = '{ name: \''+packageName+'\', version: \''+packageVersion+'\' }';
+	writeStream.write(template_details);
+	writeStream.end();
+}
+
+
 function archive(templatename) {
   
   var template = templatename || "";
+  packageName = packageName || templatename || ""; 
+  packageVersion = packageVersion || "1.0";	
 
-
+  createTemplateJsonFile(packageName, packageVersion, template); 
+  
 // create a file to stream archive data to.
-var output = fs.createWriteStream(__dirname + '/dist/'+template+'.zip');
+var output = fs.createWriteStream(__dirname + '/dist/'+packageName+'_'+packageVersion+'.zip'); 
 var archive = archiver('zip', {
   zlib: { level: 9 } // Sets the compression level.
 });
@@ -18,6 +53,7 @@ var archive = archiver('zip', {
 output.on('close', function() {
   console.log(archive.pointer() + ' total bytes');
   console.log('archiver has been finalized and the output file descriptor has closed.');
+  process.exit(); 
 });
  
 // This event is fired when the data source is drained no matter what was the data source.
@@ -76,8 +112,3 @@ archive.finalize();
 };
 module.exports = archive;
 
-var itr = 0;
-while(itr < tmpls.length ){
-archive(tmpls[itr]);
-itr++;
-}
