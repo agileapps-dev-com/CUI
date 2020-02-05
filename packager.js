@@ -9,22 +9,22 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-rl.question("Provide the name for the package: ", function(name) {
-    rl.question("Package version: ", function(ver) {
-        console.log(`${name} package version is ${ver}`);
-		packageName = name;
-		packageVersion = ver;
-		rl.close();
-    });
-});
+function acceptInputs(templatename) {
+	templatename = templatename || "";
+	
+	rl.question("template package name: ("+templatename+") ", function(name) {
+		rl.question("template package version: (1.0) ", function(ver) {
+			packageName = name || templatename || ""; 
+			packageVersion = ver || "1.0";	
+			console.log(`${packageName} template package version is ${packageVersion}`);
+			rl.close();
+		});
+	});
 
-rl.on("close", function() {
-	var itr = 0;
-	while(itr < tmpls.length ){
-		archive(tmpls[itr]);
-		itr++;
-	}
-});
+	rl.on("close", function() {
+		archive(templatename);
+	});
+}
 
 function createTemplateJsonFile(packageName, packageVersion, template) {
 	var writeStream = fs.createWriteStream('src/' + template + '/template-details.json');
@@ -33,12 +33,9 @@ function createTemplateJsonFile(packageName, packageVersion, template) {
 	writeStream.end();
 }
 
-
 function archive(templatename) {
   
   var template = templatename || "";
-  packageName = packageName || templatename || ""; 
-  packageVersion = packageVersion || "1.0";	
 
   createTemplateJsonFile(packageName, packageVersion, template); 
   
@@ -112,3 +109,8 @@ archive.finalize();
 };
 module.exports = archive;
 
+var itr = 0;
+while(itr < tmpls.length ){
+	acceptInputs(tmpls[itr]);
+	itr++;
+}
