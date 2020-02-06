@@ -96,7 +96,7 @@ archive.file('file1.txt', { name: 'file4.txt' });
 archive.directory('subdir/', 'new-subdir');
  */
 // append files from a sub-directory, putting its contents at the root of archive
-archive.directory('src/'+template, false);
+archive.directory('src/'+template, packageName);
  /*
 // append files from a glob pattern
 archive.glob('subdir/*.txt');
