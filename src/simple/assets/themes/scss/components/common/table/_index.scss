@@ -1,0 +1,88 @@
+.mat-table {
+  > .mat-header-row,
+  > .mat-row {
+    border-color: get-colors-map("divider");
+    min-height: auto;
+    padding: 0;
+    border-bottom: 0;
+
+    > .mat-cell {
+      padding: 5px;
+      align-self: stretch;
+      border-color: get-theme-color($theme-colors-primary, "light", false);
+      border-style: solid;
+      border-width: 0 0px 1px 0;
+      &:first-child {
+        border-left-width: 1px;
+      }
+
+      &.cdk-column-actionButton {
+        justify-content: center;
+      }
+    }
+
+    > .mat-header-cell {
+      padding: 5px;
+      align-self: stretch;
+      border-color: get-theme-color($theme-colors-primary, "light", false);
+      border-style: solid;
+      border-width: 0 0px 1px 0;
+      
+      &:first-child {
+        border-left-width: 1px;
+      }
+      &.cdk-column-select {
+        justify-content: flex-start;
+      }
+    }
+  }
+}
+
+// Stiped lines
+.ace-table-striped {
+    
+  .mat-table {
+    > .mat-row {
+      &:nth-child(odd) {
+        background-color: get-colors-map("bgHighlight");
+      }
+    }
+  }
+}
+
+// bordered
+.ace-table-bordered {
+    
+  .mat-table {
+    > .mat-header-row{
+      
+      > .mat-header-cell{
+        &:not(.cdk-column-select){
+          justify-content: center;
+        }
+        border-right-width:1px ;
+      }
+    }
+    > .mat-row {
+      > .mat-cell
+      {
+        border-right-width:1px ;
+      }
+      
+    }
+  }
+}
+
+// Stiped lines
+.ace-table-hover {
+    
+  .mat-table {
+    > .mat-row,
+    > .mat-header-row {
+      &:hover{
+        background-color: get-theme-color($theme-colors-primary, "light", false);
+      }
+      
+    }
+  }
+}

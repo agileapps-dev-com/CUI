@@ -1,0 +1,164 @@
+/*
+   ALL FIELD TYPES COMMON STYLE STARTS
+*/
+@mixin fields-common-styles {
+  border-radius: 0;
+  border-color: get-colors-map("border");
+
+  &:focus {
+    border: 1px solid get-theme-color($theme-colors-primary, "base", false);
+    box-shadow: none;
+  }
+}
+
+.ace-field-input {
+  @include fields-common-styles();
+}
+
+.ace-field-select {
+  @include fields-common-styles();
+}
+.ace-field-textarea {
+  @include fields-common-styles();
+}
+
+// radio buttons start
+
+.aac-radio-label {
+  position: relative;
+  overflow: hidden;
+  padding-left: 1.25rem;
+  margin-bottom: 0;
+  line-height: 1.5rem;
+
+  .ace-field-input {
+    position: absolute;
+    left: -2rem;
+  }
+
+  &:before {
+    position: absolute;
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid get-theme-color($theme-colors-primary, "base", false);
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    line-height: 1.5rem;
+    @include transform(translateY(0.25rem));
+  }
+
+  &.input-checked {
+    &:after {
+      position: absolute;
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      background: get-theme-color($theme-colors-primary, "base", false) none;
+      top: 0.25rem;
+      border-radius: 50%;
+      left: 0.25rem;
+      line-height: 1.5rem;
+      @include transform(translateY(0.25rem));
+    }
+  }
+
+  &:focus-within {
+    &:before {
+      box-shadow: inset 0 0 0 1px get-theme-color($theme-colors-primary, "dark", false);
+    }
+  }
+}
+// radio buttons end
+
+// checkbox start
+.aac-checkbox-label {
+  position: relative;
+  overflow: hidden;
+  padding-left: 1.25rem;
+  margin-bottom: 0;
+  line-height: 1.5rem;
+
+  .ace-field-input {
+    position: absolute;
+    left: -2rem;
+  }
+
+  &:before {
+    position: absolute;
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid get-theme-color($theme-colors-primary, "base", false);
+    border-radius: 0%;
+    left: 0;
+    top: 0;
+    line-height: 1.5rem;
+    @include transform(translateY(0.25rem));
+  }
+
+  &.input-checked {
+    &:after {
+      position: absolute;
+      content: "";
+      height: 0.3rem;
+      width: 0.6rem;
+      border-left: 0.125rem solid get-theme-color($theme-colors-primary, "base", false);
+      border-bottom: 0.125rem solid get-theme-color($theme-colors-primary, "base", false);
+      @include transform(rotate(-45deg));
+      left: 0.2rem;
+      top: 0.55rem;
+    }
+  }
+
+  &:focus-within {
+    &:before {
+      box-shadow: inset 0 0 0 1px get-theme-color($theme-colors-primary, "dark", false);
+    }
+  }
+}
+// checkbox end
+// input group border for lookup field 
+.input-group {
+  &.ace-hide-action-links {
+    & > .custom-select,
+    & > .form-control {
+      border-right: 0;
+    }
+    .input-group-append {
+      .ace-btn {
+        border-left: 0;
+      }
+    }
+  }
+}
+
+/*
+   ALL FIELD TYPES COMMON STYLE ENDS
+*/
+
+/*
+   ALL FIELD ERROR STATE STYLE STARTS
+*/
+@mixin error-text-color {
+  color: get-theme-color($theme-colors-error, "base", false);
+}
+@mixin error-field-border-color {
+  border-color: get-theme-color($theme-colors-error, "base", false);
+}
+
+.form-group {
+  &.has-error {
+    @include error-text-color();
+    .form-control {
+      @include error-field-border-color();
+    }
+  }
+}
+.section-has-error {
+  @include error-text-color();
+}
+/*
+   ALL FIELD ERROR STATE STYLE ENDS
+*/

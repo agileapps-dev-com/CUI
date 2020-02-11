@@ -1,0 +1,36 @@
+.mat-checkbox {
+  .mat-checkbox-layout {
+    .mat-checkbox-frame {
+      border: 2px solid get-theme-color($theme-colors-primary, "base", false);
+    }
+    .mat-checkbox-checkmark {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      width: 100%;
+      fill: get-theme-color($theme-colors-primary, "base", true);
+    }
+    .mat-checkbox-mixedmark {
+      background-color: get-theme-color($theme-colors-primary, "base", true);
+      .mat-checkbox-checkmark-path {
+        stroke: get-theme-color($theme-colors-primary, "base", true);
+      }
+    }
+  }
+  &.mat-checkbox-checked {
+    .mat-checkbox-background {
+      background-color: get-theme-color($theme-colors-primary, "base", false);
+    }
+    .mat-checkbox-checkmark {
+      opacity: 1;
+    }
+  }
+  &.mat-checkbox-indeterminate {
+    .mat-checkbox-background {
+      background-color: get-theme-color($theme-colors-primary, "base", false);
+    }
+    
+  }
+}

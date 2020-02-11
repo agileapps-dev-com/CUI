@@ -1,0 +1,13 @@
+// all links
+.ace-theme,
+.cdk-overlay-container {
+  a {
+    &:visited,
+    &:link {
+      color: get-theme-color($theme-colors-primary, "dark", false);
+    }
+    &:hover {
+      color: get-theme-color($theme-colors-primary, "base", false);
+    }
+  }
+}
