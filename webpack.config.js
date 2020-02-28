@@ -18,7 +18,7 @@ module.exports = {
     },
 	 proxy: [{
       context: ['/networking', '/ace-lib'],
-      "target": "https://instance-path",
+      "target": "https://satheesh.vmaalqamain.eur.ad.sag",
       "secure": false,
       "changeOrigin": "true"
     }]

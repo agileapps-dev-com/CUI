@@ -1,0 +1,23 @@
+
+// typography
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:200,300,400,500,600,700,800,900&display=swap");
+
+$font-family-base: "Roboto Slab", Serif;
+
+
+$theme-colors: (
+  "primary": #df6589,
+  "secondary": #565656,
+  "error": #ce190c,
+  "light": #f8f9fa,
+  "dark": #343a40
+);
+
+//table variables
+$table-head-bg: map-get($theme-colors, "light");
+$table-head-color: map-get($theme-colors, "primary");
+$table-border-color: map-get($theme-colors, "light");
+$table-striped-order: even;
+
+
+@import "node_modules/ace-lib-theme/assets/scss/theme.scss";
