@@ -24,7 +24,7 @@
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
-    "ace-lib-theme": "^1.0.1"
+    "ace-lib-theme": "^1.0.6"
   },
   "repository": {
     "type": "git",
