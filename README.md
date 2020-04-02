@@ -1,2 +1,7 @@
-# CUI
-Custom User Interface for AgileApps
+# CUI Templates
+Custom User Interface templates for AgileApps.
+
+## Sample CUI templates
+* [App Square](https://github.com/agileapps-dev-com/) with CUI template
+
+* [Visitor Management App](https://github.com/agileapps-dev-com/Visitor-Management-App) with CUI template
