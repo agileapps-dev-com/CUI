@@ -1,6 +1,9 @@
 # CUI Templates
 Custom User Interface templates for AgileApps.
 
+## Tutorials:
+* [Angular CUI template](./docs/tutorials/angular/readme.md)
+
 ## Sample CUI templates
 * [App Square](https://github.com/agileapps-dev-com/app-square) with CUI template
 
