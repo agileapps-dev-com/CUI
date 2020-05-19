@@ -1,6 +1,6 @@
 # Tutotrials on AgileApps CUI template 
 
-Using the Custom User Interface (CUI) template feature availabe in AgileApps version 10.13.5+, you can customize the platform's run-time user interface. The `ace-lib` components library offers a set of pre-built user interface components to be used in CUI templates.
+Using the Custom User Interface (CUI) template feature available in AgileApps version 10.13.5+, you can customize the platform's run-time user interface. The `ace-lib` components library offers a set of pre-built user interface components to be used in CUI templates.
 
 ## Tutorials
 
